@@ -1,6 +1,7 @@
 import requests
 import json
 import sys
+from optparse import OptionParser
 '''
 python facescore.py 
 [-c configure_file_path] 
@@ -27,11 +28,15 @@ def read_configure_data(conf_file_path):
     else :
         conf_file = conf_file_path
     # print(conf_file)
-    with open(conf_file) as f:
-        conf_dict = json.load(f)
+    try:
+        with open(conf_file) as f:
+            conf_dict = json.load(f)
+    except:
+        print('config file error')
     return conf_dict
 
 def get_response_data(conf_data,*args):
+    # cannot post 
     try:
         r = requests.post(request_url,data = conf_data)
         r.raise_for_status()
@@ -46,8 +51,11 @@ def parse_data(json_data):
 def main():
     requests_type = ""
     key_list = [sys.argv[i] for i in range(1,len(sys.argv)) if i%2 == 1]
+    # print(key_list)
     value_list = [sys.argv[i] for i in range(1,len(sys.argv)) if i%2 == 0]
-    arg_dict = {key:value for key in key_list for value in value_list}
+    # print(value_list)
+    arg_dict = dict(zip(key_list,value_list))
+    # print(arg_dict)
     conf_data = read_configure_data(arg_dict.get('-c'))
     if conf_data is None:
         print('WTF the -c arguments you write')
@@ -65,6 +73,8 @@ def main():
         print('WTF the -u|-f|-b arguments you write')
         return
     json_data = get_response_data(conf_data)
+    facequality = json.loads(json_data)
+    print(facequality['faces'][0]['attributes']['beauty'])
 
 if __name__ == "__main__":
     main()
