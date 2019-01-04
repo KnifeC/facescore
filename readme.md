@@ -1,5 +1,5 @@
 # Get Facescore With Faceplusplus
-> Everyone will tend to get the score 5
+> 当你与一个人相处久了，你会发现他能(也只能)得到(主观感受上的)5分
 
 # Attention
 **Now there are something wrong with file upload , don't use like 'python facescore.py -f mypic.jpg'**
