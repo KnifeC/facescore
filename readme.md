@@ -1,4 +1,5 @@
 # Get Facescore With Faceplusplus
+> Everyone will tend to get the score 5
 
 # Attention
 **Now there are something wrong with file upload , don't use like 'python facescore.py -f mypic.jpg'**
