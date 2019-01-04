@@ -1,10 +1,11 @@
+> 当你与一个人相处久了 , 你会发现他能(也只能)得到(主观感受上的)5分
+
 # Get Facescore With Faceplusplus
-> 当你与一个人相处久了，你会发现他能(也只能)得到(主观感受上的)5分
 
-# Attention
-**Now there are something wrong with file upload , don't use like 'python facescore.py -f mypic.jpg'**
+## Attention
+* **Now there are something wrong with file upload , don't use like 'python facescore.py -f mypic.jpg'**
 
-You need a JSON configure file like 
+* You need a JSON configure file like 
 ```js
 {
     "api_key":"Your API Key"
@@ -12,7 +13,7 @@ You need a JSON configure file like
 }
 ```
 
-# How To Use
+## How To Use
 ``` bash
 python facescore.py 
 [-c configure_file_path] 
